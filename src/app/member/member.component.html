@@ -1,0 +1,52 @@
+<!-- 
+* File: member.component.html
+* Author: Szivák Gergő
+* Copyright: 2022, Szivák Gergő
+* Group: Szoft II/N
+* Date: 2022-03-31
+* Github: https://github.com/Gergosz-2000/member
+* Licenc: GNU GPL 
+-->
+
+ 
+<form [formGroup]="memberForm" (ngSubmit)="saveMember()">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Név</label>
+        <input type="text" class="form-control" id="name" 
+        formControlName="name"
+        placeholder="Vezetéknév Keresztnév">
+        <span *ngIf="memberForm.controls['name'].invalid && memberForm.controls['name'].touched">A név kötelező</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="city" class="form-label">Város</label>
+        <input type="text" class="form-control" id="city" 
+        formControlName="city"
+        placeholder="Település neve">
+        <span *ngIf="memberForm.controls['city'].invalid && memberForm.controls['city'].touched">A város kötelező</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="address" class="form-label">Cím</label>
+        <input type="text" class="form-control" id="address" 
+        formControlName="address"
+        placeholder="Cím">
+        <span *ngIf="memberForm.controls['address'].invalid && memberForm.controls['address'].touched">A cím kötelező</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="text" class="form-control" id="email" 
+        formControlName="email"
+        placeholder="E-mail cím">
+        <span *ngIf="memberForm.controls['email'].invalid && memberForm.controls['email'].touched">Az e-mail cím kötelező</span>
+    </div>
+
+    <div>
+        <button class="btn btn-info" [disabled]="!memberForm.valid">
+            Rögzít
+        </button>
+    </div>
+
+</form>
